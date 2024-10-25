@@ -1,6 +1,6 @@
-const axios = require('axios')
-const cheerio = require('cherrio')
-const express = require('express')
+const axios = require('axios'); // Importing axios for making HTTP requests
+const cheerio = require('cheerio'); // Importing cheerio for parsing HTML
+const express = require('express');
 
 async function getImages(url) {
     try{
@@ -9,6 +9,14 @@ async function getImages(url) {
         const $ = cheerio.load(data);
 
         const images = [];
+        $("img").each((index, element) =>{
+            const src = $(element).attr("src");
+            if (src) {
+                images.push(src);
+            }
+        });
+
+        return images;
 
     } catch (error) {
         console.error("Error scraping images: ", error);
