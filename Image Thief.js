@@ -1,6 +1,8 @@
 const axios = require('axios'); // Importing axios for making HTTP requests
 const cheerio = require('cheerio'); // Importing cheerio for parsing HTML
 const express = require('express');
+const open = require('open'); // Importing open to launch the browser
+const url = require('url'); // Importing the url module
 
 const app = express();
 const PORT = 3000;
